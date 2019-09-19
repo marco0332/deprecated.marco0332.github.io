@@ -1,0 +1,17 @@
+{
+ "name": "App",
+ "icons": [
+  {
+   "src": "\/icon@0,25x.png",
+   "sizes": "32x32",
+   "type": "image\/png",
+   "density": "0.25"
+  },
+  {
+   "src": "\/icon.png",
+   "sizes": "310x310",
+   "type": "image\/png",
+   "density": "1.0"
+  },
+ ]
+}
