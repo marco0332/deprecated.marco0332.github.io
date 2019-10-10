@@ -13,4 +13,4 @@ image: /assets/img/blog/gin.jpg
 
 ## Project
 
-### 1. <a href="./projects/chatbot.md">챗봇 프로젝트</a>
+### 1. <a href="/projects/chatbot.md">챗봇 프로젝트</a>
