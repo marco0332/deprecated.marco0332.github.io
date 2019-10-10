@@ -11,4 +11,6 @@ image: /assets/img/blog/gin.jpg
 머신러닝을 주로 공부하고 있습니다.
 {:.figure}
 
+## Project
 
+### 1. <a href="./projects/chatbot.md">챗봇 프로젝트</a>

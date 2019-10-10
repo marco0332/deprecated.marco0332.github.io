@@ -1,0 +1,19 @@
+# 챗봇 프로젝트 _ <a href="http://54.180.135.36:8083/">링크</a>
+
+## 프로젝트 기간 : 2019.09.09 ~ 2019.10.11
+
+## 팀원 : 5명
+
+## 맡은 역할
+
+- 웹 부분 프론트엔드
+- 챗봇 모델 (Seq2seq -> Seq2seq + Attention -> Transformer)
+
+![1](https://user-images.githubusercontent.com/27988544/66552105-bc113c00-eb83-11e9-9965-4bd8ce83390f.PNG)
+
+![2](https://user-images.githubusercontent.com/27988544/66552138-c92e2b00-eb83-11e9-8ead-f77d340e4af3.PNG)
+
+#### 모바일 버전도 고려
+
+![KakaoTalk_20191010_142921822](https://user-images.githubusercontent.com/27988544/66552213-e19e4580-eb83-11e9-83a9-2c8882a93689.jpg)
+
