@@ -12,7 +12,7 @@ url:                   https://marco0332.github.io
 # Use the empty string '' otherwise.
 # For GitHub project sites, this is usually the name of the project,
 # e.g. `/hydejack`.
-baseurl:               'marco0332'
+baseurl:               ''
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
@@ -112,6 +112,9 @@ defaults:
       accent_image:
         background:    rgb(32,32,32)
         overlay:       false
+
+  # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
+  # but we want them to be `WebPage`s:
   - scope:
       type:            projects
     values:
@@ -179,7 +182,7 @@ hydejack:
 
   # Set to `true` if you don't intend on changing the accent color on a per-page basis.
   # This will increase site build speed!
-  no_page_style:       true
+  no_page_style:       false
 
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.
@@ -258,8 +261,6 @@ exclude:
   - _plugins
   - .sass-cache
 include:
-  - _headers
-  - _redirects
   - LICENSE.md
 
 
@@ -267,27 +268,22 @@ include:
 # ========================================================================================
 
 plugins:
-  - jekyll-avatar
   - jekyll-default-layout
   - jekyll-feed
-  - jekyll-gist
   - jekyll-optional-front-matter
   - jekyll-paginate
   - jekyll-readme-index
   - jekyll-redirect-from
   - jekyll-relative-links
-  - jekyll-remote-theme
   - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-titles-from-headings
   - jekyll-replace-img
-  - jemoji
-  - 'jekyll/scholar'
-  - jekyll-flickr
 
 # Theme
 # ---------------------------------------------------------------------------------------
 
-theme: jekyll-theme-hydejack-pro
+# theme: jekyll-theme-hydejack
 # remote_theme: qwtel/hydejack@gem
 
 # SEO Tag
@@ -358,7 +354,7 @@ compress_html:
   clippings:           all
   endings:             all
   ignore:
-    envs:              [development, production]
+    envs:              [development]
 
 sass:
   style:               compressed
