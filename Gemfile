@@ -10,33 +10,23 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll"
 
-gem "jekyll-theme-hydejack-pro", git: 'https://gitlab.com/rriemann/hydejack-pro.git', branch: 'gem-pro'
-
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-avatar"
   gem "jekyll-default-layout"
   gem "jekyll-feed"
-  gem "jekyll-gist"
   gem "jekyll-optional-front-matter"
   gem "jekyll-paginate"
-  gem "jekyll-redirect-from"
-  gem "jekyll-relative-links"
-  gem "jekyll-remote-theme"
   gem "jekyll-readme-index"
   gem "jekyll-redirect-from"
+  gem "jekyll-relative-links"
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-titles-from-headings"
   gem "jekyll-replace-img"
-  gem "jekyll-scholar"
-  gem "jemoji", "0.9.0"
-  gem "jekyll-flickr", "~> 0.1.2"
-  gem "jekyll-maps", git: "https://github.com/rriemann/jekyll-maps", branch: "mapbox"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

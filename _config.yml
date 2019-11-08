@@ -133,24 +133,6 @@ defaults:
       comments:       true
 
 
-scholar:
-  # style: oscola-no-ibid # i.e. chicago-author-date, ieee, ieee-with-url, see `ruby -r "csl/styles" -e "puts CSL::Style.ls"`
-  # style: '_plugins/computing-surveys.csl'
-  # style: oscola-no-ibid
-  style: _plugins/taylor-and-francis-chicago-note.csl
-  # bibtex_filters:
-  #   - latex
-  #   - markdown
-  sort_by: year,month
-  order: descending,descending
-  # style: _plugins/ieee.csl
-  bibliography: papers.bib
-  # see example https://github.com/ashinkarov/ashinkarov.github.com
-  details_dir:    output
-  details_layout: output-details.html
-  details_link: 'Details and Download'
-
-
 # 3rd Party Integrations
 # ----------------------------------------------------------------------------------------
 
@@ -171,7 +153,7 @@ disqus:                lee_gi_in
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related]
+  post_addons:         [about, newsletter, related, random]
 
   # Configure the order of complementary content on project pages
   project_addons:      [about, newsletter, other]
@@ -296,13 +278,11 @@ plugins:
   - jekyll-relative-links
   - jekyll-remote-theme
   - jekyll-seo-tag
-  - jekyll-sitemap
   - jekyll-titles-from-headings
   - jekyll-replace-img
   - jemoji
   - 'jekyll/scholar'
   - jekyll-flickr
-  - jekyll-maps
 
 # Theme
 # ---------------------------------------------------------------------------------------
@@ -382,7 +362,3 @@ compress_html:
 
 sass:
   style:               compressed
-
-maps:
-  mapbox:
-    access_token: pk.eyJ1IjoicnJpZW1hbm4iLCJhIjoiYWZlNzY2Y2ZlMTk4YTkyN2ZhY2YyNzIwOWI3ZDU2MGQifQ.527GES6dRvU6qArdTPgpGw
