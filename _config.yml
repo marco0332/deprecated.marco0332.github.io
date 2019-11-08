@@ -12,7 +12,7 @@ url:                   https://marco0332.github.io
 # Use the empty string '' otherwise.
 # For GitHub project sites, this is usually the name of the project,
 # e.g. `/hydejack`.
-baseurl:               ''
+baseurl:               'marco0332'
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
@@ -110,9 +110,6 @@ defaults:
       accent_image:
         background:    rgb(32,32,32)
         overlay:       false
-
-  # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
-  # but we want them to be `WebPage`s:
   - scope:
       type:            projects
     values:
@@ -132,6 +129,24 @@ defaults:
       type:           posts
     values:
       comments:       true
+
+
+scholar:
+  # style: oscola-no-ibid # i.e. chicago-author-date, ieee, ieee-with-url, see `ruby -r "csl/styles" -e "puts CSL::Style.ls"`
+  # style: '_plugins/computing-surveys.csl'
+  # style: oscola-no-ibid
+  style: _plugins/taylor-and-francis-chicago-note.csl
+  # bibtex_filters:
+  #   - latex
+  #   - markdown
+  sort_by: year,month
+  order: descending,descending
+  # style: _plugins/ieee.csl
+  bibliography: papers.bib
+  # see example https://github.com/ashinkarov/ashinkarov.github.com
+  details_dir:    output
+  details_layout: output-details.html
+  details_link: 'Details and Download'
 
 
 # 3rd Party Integrations
@@ -154,7 +169,7 @@ disqus:                lee_gi_in
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related, random]
+  post_addons:         [about, newsletter, related]
 
   # Configure the order of complementary content on project pages
   project_addons:      [about, newsletter, other]
@@ -180,7 +195,7 @@ hydejack:
 
   # Set to `true` if you don't intend on changing the accent color on a per-page basis.
   # This will increase site build speed!
-  no_page_style:       false
+  no_page_style:       true
 
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.
@@ -259,6 +274,8 @@ exclude:
   - _plugins
   - .sass-cache
 include:
+  - _headers
+  - _redirects
   - LICENSE.md
 
 
@@ -266,22 +283,29 @@ include:
 # ========================================================================================
 
 plugins:
+  - jekyll-avatar
   - jekyll-default-layout
   - jekyll-feed
+  - jekyll-gist
   - jekyll-optional-front-matter
   - jekyll-paginate
   - jekyll-readme-index
   - jekyll-redirect-from
   - jekyll-relative-links
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-titles-from-headings
   - jekyll-replace-img
+  - jemoji
+  - 'jekyll/scholar'
+  - jekyll-flickr
+  - jekyll-maps
 
 # Theme
 # ---------------------------------------------------------------------------------------
 
-# theme: jekyll-theme-hydejack
+theme: jekyll-theme-hydejack-pro
 # remote_theme: qwtel/hydejack@gem
 
 # SEO Tag
@@ -352,7 +376,11 @@ compress_html:
   clippings:           all
   endings:             all
   ignore:
-    envs:              [development]
+    envs:              [development, production]
 
 sass:
   style:               compressed
+
+maps:
+  mapbox:
+    access_token: pk.eyJ1IjoicnJpZW1hbm4iLCJhIjoiYWZlNzY2Y2ZlMTk4YTkyN2ZhY2YyNzIwOWI3ZDU2MGQifQ.527GES6dRvU6qArdTPgpGw
