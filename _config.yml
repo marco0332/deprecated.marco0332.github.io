@@ -52,14 +52,14 @@ menu:
     url:               /study/
   - title:             Algorithm
     url:               /algorithm/
+  - title:             Projects
+    url:               /projects/
   - title:             Diary
     url:               /diary/
   - title:             Books
     url:               /books/
   - title:             About
     url:               /about/
-  - title:             Projects
-    url:               /projects/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
