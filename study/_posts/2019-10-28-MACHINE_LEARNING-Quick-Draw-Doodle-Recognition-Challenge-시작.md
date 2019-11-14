@@ -1,4 +1,4 @@
-﻿# 커널 예시 
+﻿# # MACHINE_LEARNING - Quick Draw Doodle Recognition Challenge 시작
 
 https://www.kaggle.com/mrisdal/exploring-survival-on-the-titanic/code
 
