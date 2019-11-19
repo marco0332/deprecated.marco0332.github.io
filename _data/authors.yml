@@ -1,4 +1,4 @@
-# The primary author of this blog.
+﻿# The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
 author1:
@@ -8,7 +8,7 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    백엔드와 머신러닝에 관심이 많은 개발자입니다.  
+    웹와 머신러닝에 관심이 많은 개발자입니다.  
   
     가톨릭대학교 미디어기술콘텐츠학과, 컴퓨터정보공학 전공  
     삼성청년소프트웨어아카데미 1기 소속으로 공부 중  
