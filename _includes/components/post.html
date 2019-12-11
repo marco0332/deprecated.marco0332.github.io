@@ -58,9 +58,12 @@
       }
 
       if(headerCounter > 0) {
+        postNavList.classList.remove("post-nav-list");
         postNavList.parentNode.removeChild(postNavList);
+        console.log("headerCounter 0");
       } else {
         pushStateEl.appendChild(postNavList);
+        console.log("headerCounter more than 0")
       }
     </script>
     {% include components/post-nav-list.html post=post %}
