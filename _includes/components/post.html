@@ -43,6 +43,7 @@
       postNavList.classList.add("post-nav-list");
       
       var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
+      
       for(var i=0, size=postContent.childElementCount; i<size; i++) {
         if(0 <= headers.indexOf(postContent.children[i].tagName)) {
           var link = document.createElement('a');
