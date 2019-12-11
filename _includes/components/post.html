@@ -43,18 +43,26 @@
       postNavList.classList.add("post-nav-list");
       
       var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
-      
+
+      var headerCounter = 0;
       for(var i=0, size=postContent.childElementCount; i<size; i++) {
         if(0 <= headers.indexOf(postContent.children[i].tagName)) {
           var link = document.createElement('a');
           link.href = "#" + postContent.children[i].id;
           link.append(postContent.children[i].cloneNode(true));
           postNavList.append(link);
+          headerCounter++;
         } else if(postContent.children[i].tagName=="SCRIPT") {
           break;
         }
       }
-      pushStateEl.appendChild(postNavList);
+
+      if(headerCounter > 0) {
+        pushStateEl.appendChild(postNavList);
+        console.log("more than 0");
+      } else {
+        console.log("equal 0");
+      }
     </script>
   {% else %}
     {{ post.excerpt }}
