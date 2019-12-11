@@ -69,11 +69,16 @@ hy-img {
 
 figure, .figure {
   @extend .faded, .fine, .centered;
-  margin: 2rem 3rem;
+  margin: 2rem 5rem;
 
   > *:first-child {
     margin-bottom: .5rem;
   }
+}
+
+.figure > img {
+  display: block;
+  width: 100%;
 }
 
 .highlighter-rouge + .figure {

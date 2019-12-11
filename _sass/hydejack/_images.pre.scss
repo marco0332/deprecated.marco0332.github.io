@@ -69,6 +69,11 @@ figure, .figure {
   }
 }
 
+.figure > img {
+  display: block;
+  width: 100%;
+}
+
 .highlighter-rouge + .figure {
   margin-top: -1.5rem;
 }
