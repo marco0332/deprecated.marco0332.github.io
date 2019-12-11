@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marco0332.github.io/sitemap.xml
