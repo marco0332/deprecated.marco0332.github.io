@@ -26,11 +26,6 @@ table:not(.highlight) {
   
   border-collapse: collapse;
   margin-bottom: 2rem;
-  margin-left: -1rem;
-  
-
-  
-
   
   td, th {
     @extend .color-transition;
@@ -45,9 +40,4 @@ table:not(.highlight) {
       padding-right: 1rem;
     }
   }
-  
-
-  
 }
-
-

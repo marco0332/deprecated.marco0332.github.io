@@ -12,6 +12,12 @@
     {% if image.overlay %}data-overlay{% endif %}
   {% endunless %}
   >
+  <script>
+    var postNavList = document.getElementsByClassName('post-nav-list')[0];
+    if(postNavList != null) {
+      postNavList.remove();
+    }
+  </script>
   {{ content }}
   {% include body/comments.html %}
   {% include body/footer.html %}

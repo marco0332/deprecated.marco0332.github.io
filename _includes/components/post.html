@@ -35,6 +35,7 @@
 
   {% if no_excerpt %}
     {{ post.content }}
+    {% include components/post-nav-list.html post=post %}
   {% else %}
     {{ post.excerpt }}
 

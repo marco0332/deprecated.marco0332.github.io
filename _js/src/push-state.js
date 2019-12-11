@@ -22,6 +22,10 @@
 // which is the purpose of this file.
 
 // ## Includes
+import "core-js/fn/array/for-each";
+import "core-js/fn/function/bind";
+import "core-js/fn/string/includes";
+
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
@@ -82,10 +86,13 @@ const FN_SEL = "li[id^='fn:']";
 const FN_LINK_SEL = "a[href^='#fn:']";
 
 // TODO:
-const DURATION = 350;
+const DURATION = 250;
 
 // Duration of cross-fading the sidebar background images.
-const FADE_DURATION = 2000;
+const FADE_DURATION = 1000;
+
+// Time a user has to stya on the site before we send word to Google Analytics.
+const GA_DELAY = 500;
 
 // Details of the fade-out animation.
 const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
