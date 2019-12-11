@@ -19,13 +19,13 @@ baseurl:               ''
 lang:                  ko
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 GIN
+title:                 GIIN
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
   "Break the comfort zone".
-  개발자 GIN의 블로그
+  개발자 GIIN의 블로그
 
 # A shorter description for the sidebar.
 tagline:               >
