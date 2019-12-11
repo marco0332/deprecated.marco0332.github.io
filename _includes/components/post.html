@@ -58,7 +58,7 @@
       }
 
       if(headerCounter > 0) {
-        postNavList.remove();
+        postNavList.parentNode.removeChild(postNavList);
       } else {
         pushStateEl.appendChild(postNavList);
       }
