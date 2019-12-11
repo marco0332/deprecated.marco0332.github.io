@@ -38,23 +38,28 @@
     <script>
       var pushStateEl = document.getElementsByTagName('hy-push-state')[0];
       var postContent = document.getElementsByTagName('article')[0];
+      
+      var postNavList = document.createElement("div");
+      postNavList.classList.add("post-nav-list");
+      
+      var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
 
-      if(postContent.childElementCount > 0) {
-        var postNavList = document.createElement("div");
-        postNavList.classList.add("post-nav-list");
-        
-        var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
-
-        for(var i=0, size=postContent.childElementCount; i<size; i++){
-          if(0<=headers.indexOf(postContent.children[i].tagName)){
-            var link = document.createElement('a');
-            link.href = "#" + postContent.children[i].id;
-            link.append(postContent.children[i].cloneNode(true));
-            postNavList.append(link);
-          }else if(postContent.children[i].tagName=="SCRIPT"){
-            break;
-          }
+      var headerCounter = 0;
+      for(var i=0, size=postContent.childElementCount; i<size; i++){
+        if(0<=headers.indexOf(postContent.children[i].tagName)){
+          var link = document.createElement('a');
+          link.href = "#" + postContent.children[i].id;
+          link.append(postContent.children[i].cloneNode(true));
+          postNavList.append(link);
+          headerCounter++;
+        }else if(postContent.children[i].tagName=="SCRIPT"){
+          break;
         }
+      }
+
+      if(headerCounter > 0) {
+        postNavList.remove();
+      } else {
         pushStateEl.appendChild(postNavList);
       }
     </script>
