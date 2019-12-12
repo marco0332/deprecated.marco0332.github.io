@@ -1,3 +1,14 @@
+---
+layout: post
+title: Machine Learning - 모델 성능 측정 지표(metrics)
+description: >
+  Machine Learning - 모델 성능 측정 지표(metrics)에 대하여
+excerpt_separator: <!--more-->
+
+---
+
+<!--more-->
+
 # Machine Learning - 모델 성능 측정 지표(metrics)
 
 어떤 것을 제어하려면 관측할 수 있어야 한다. 성공의 지표가 모델의 최적화할 손실 함수를 선택하는 기준이 된다.
@@ -21,12 +32,12 @@
   암환자의 정확도는 9 / 10 = 90% 이다.
   전체 정확도는 99.7%로 암환자의 정확도 (90%)가 정확하게 반영되지 않는다.
   
+
 Accuracy의 단점을 보완하는 성능척도가 Precision과 Recall, 그리고 ROC curve와 AUC이다.
-  
+
 - <b>Precision과 Recall</b>
 
   <p align="center">$$P = \frac{TP}{TP + FP}$$, $$R = \frac{TP}{TP + FN}$$</p>
-  
   즉, Precision은 Positive라고 판단한 것 중에서 실제로 정답이 True인 비율
   Recall은 실제 True인 것 중에서 Positive라고 예측한 비율
   

@@ -1,3 +1,13 @@
+---
+layout: post
+title: JAVA - Exception
+description: >
+  JAVA - Exception에 대하여
+excerpt_separator: <!--more-->
+---
+
+<!--more-->
+
 # JAVA - Exception
 
 예외처리를 if로 하면 명확하게 확인하거나 파악하기가 어렵다.

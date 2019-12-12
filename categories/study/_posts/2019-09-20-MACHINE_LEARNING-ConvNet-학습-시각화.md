@@ -1,3 +1,13 @@
+---
+layout: post
+title: Machine Learning - ConvNet 학습 시각화
+description: >
+  Machine Learning - ConvNet 학습 시각화에 대하여
+excerpt_separator: <!--more-->
+---
+
+<!--more-->
+
 # Machine Learning - ConvNet 학습 시각화
 
 ConvNet의 표현은 시각적인 개념을 학습한 거이기 때문에 시각화하기 좋다.

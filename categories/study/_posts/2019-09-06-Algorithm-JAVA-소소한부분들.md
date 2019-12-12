@@ -1,3 +1,14 @@
+---
+layout: post
+title: JAVA_알고리즘 풀기 위한 소소한 코드
+description: >
+  JAVA_알고리즘 풀기 위한 소소한 코드
+excerpt_separator: <!--more-->
+
+---
+
+<!--more-->
+
 # JAVA_알고리즘 풀기 위한 소소한 코드
 
 ## ArrayList<Integer> convert to int[]

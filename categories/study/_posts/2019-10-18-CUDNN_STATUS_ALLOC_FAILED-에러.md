@@ -1,3 +1,13 @@
+---
+layout: post
+title: CUDNN_STATUS_ALLOC_FAILED 에러
+description: >
+  CUDNN_STATUS_ALLOC_FAILED 에러
+excerpt_separator: <!--more-->
+---
+
+<!--more-->
+
 # CUDNN_STATUS_ALLOC_FAILED 에러
 
 could not create cudnn handle: CUDNN_STATUS_ALLOC_FAILED 라는 에러가 뜨면서 tesnorflow나 keras가 실행되지 않는 이유는 <b>gpu 메모리 할당 문제</b>

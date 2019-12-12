@@ -1,3 +1,14 @@
+---
+layout: post
+title: MACHINE_LEARNING Object Detection을 위한 데이터 라벨링 중...
+description: >
+  MACHINE_LEARNING Object Detection을 위한 데이터 라벨링 중...
+excerpt_separator: <!--more-->
+
+---
+
+<!--more-->
+
 # MACHINE_LEARNING Object Detection을 위한 데이터 라벨링 중...
 
 ![image](https://user-images.githubusercontent.com/27988544/67653054-09b2e480-f98b-11e9-8f30-7b480da37d18.png)

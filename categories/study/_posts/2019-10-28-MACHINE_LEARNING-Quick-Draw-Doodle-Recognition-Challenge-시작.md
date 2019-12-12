@@ -1,3 +1,13 @@
+---
+layout: post
+title: MACHINE_LEARNING - Quick Draw Doodle Recognition Challenge 시작
+description: >
+  MACHINE_LEARNING - Quick Draw Doodle Recognition Challenge 시작
+excerpt_separator: <!--more-->
+---
+
+<!--more-->
+
 ﻿# # MACHINE_LEARNING - Quick Draw Doodle Recognition Challenge 시작
 
 https://www.kaggle.com/mrisdal/exploring-survival-on-the-titanic/code

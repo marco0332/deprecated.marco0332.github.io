@@ -1,3 +1,13 @@
+---
+layout: post
+title: Machine Learning - Logistic Regression (평점 예측)
+description: >
+  Machine Learning - Logistic Regression (평점 예측)
+excerpt_separator: <!--more-->
+---
+
+<!--more-->
+
 # Machine Learning - Logistic Regression (평점 예측)
 
 ![영화리뷰](https://user-images.githubusercontent.com/27988544/64659261-b38af000-d475-11e9-9c28-9b3f3429b927.jpg)

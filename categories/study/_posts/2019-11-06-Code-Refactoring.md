@@ -1,3 +1,14 @@
+---
+layout: post
+title: Code Refactoring
+description: >
+  Code Refactoring에 대하여
+excerpt_separator: <!--more-->
+
+---
+
+<!--more-->
+
 # Code Refactoring
 
 ## 0. Why

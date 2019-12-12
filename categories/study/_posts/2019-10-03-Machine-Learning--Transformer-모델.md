@@ -1,3 +1,14 @@
+---
+layout: post
+title: Machine Learning - Transformer 모델
+description: >
+  Machine Learning - Transformer 모델에 대하여
+excerpt_separator: <!--more-->
+
+---
+
+<!--more-->
+
 # Machine Learning - Transformer 모델
 
 ## transformer.py

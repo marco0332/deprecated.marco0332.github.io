@@ -1,3 +1,13 @@
+---
+layout: post
+title: JAVA - Modifier
+description: >
+  JAVA - Modifier에 대하여
+excerpt_separator: <!--more-->
+---
+
+<!--more-->
+
 # JAVA - Modifier
 
 ## 1. public, private, protected, default 

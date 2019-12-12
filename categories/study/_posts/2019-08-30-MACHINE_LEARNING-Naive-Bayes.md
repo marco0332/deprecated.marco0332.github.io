@@ -1,3 +1,13 @@
+---
+layout: post
+title: Machine Learning - Naive Bayes
+description: >
+  Machine Learning - Naive Bayes에 대하여
+excerpt_separator: <!--more-->
+---
+
+<!--more-->
+
 # Machine Learning - Naive Bayes
 
 ![naivebayes](https://user-images.githubusercontent.com/27988544/64659133-1d56ca00-d475-11e9-8e22-a5008417c98e.jpg)
