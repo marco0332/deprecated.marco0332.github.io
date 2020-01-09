@@ -96,9 +96,198 @@ var obj2 = {...obj};
   1. 공동 속성 : enumerable, configurable
   2. 직접 데이터 지정하는 속성(data descriptor): writable, value
   3. 간접 데이터 지정하는 속성(accessor descriptor): get, set  
-    
+  
     참고 - <a href="https://www.bsidesoft.com/?p=1878">Object.defineProperty</a>
 - 객체 instanceof 객체 원형<br />
 : 객체가 원형을 상속하는 인스턴스인지 확인 후 boolean 반환.
 - delete 객체.프로퍼티<br />
 : 객체의 프로퍼티 제거 후 성공 여부 boolean반환. 객체 자체는 제거할 수 없다.
+
+## 2. 함수
+
+**다중 프로그래밍 패러다임**
+
+- 절차적 프로그래밍 : 조건문, 분기문, 반복문, 프로시저
+- 함수형 프로그래밍 : 일급함수(함수를 값으로 취급). 고계(고차) 함수, 익명함수
+- 객체 지향 프로그래밍 : 객체의 생성, 상속, 다형성
+
+javascript에서 함수는 위의 성질을 모두 가진다.
+
+### 1. 일급 객체
+
+함수로 object를 상속하는 객체. 평범한 객체가 가진 모든 성질을 지님.
+
+1. 프로퍼티를 가지고 있음
+2. 변수의 값이나 객체, 배열의 멤버가 될 수 있음
+3. 함수의 매개변수나 반환값이 될 수 있음
+   + 함수를 인자로 받아서 함수를 반환하는 함수를 고계 함수라고 한다.
+
+### 2. 다형성
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+
+add(1, 2); // 3
+add(3, 5, 7); // 8
+add(1); // NaN
+
+// 함수 호출 시 인자가 들어오지 않으면 undefined가 되기 때문에 default값을 설정해야 하는 경우
+function add2(a, b) {
+  if(!b) b = 1;
+  return a + b;
+}
+// ES6
+function addES6(a, b=1) {
+  return a + b;
+}
+```
+
+Javascript에서는 같은 함수를 여러번 중첩 선언할 수는 없지만, 함수의 매개변수 자체를 유동적으로 전달 가능하기 때문에 오버로딩을 구현할 수 있다.
+
+또한 함수 내부에서만 접근 가능한 arguments 객체를 사용하면 함수에 넘겨진 모든 매개변수를 제어할 수 있다.
+
+```javascript
+function fn() {
+  return arguments;
+}
+fn(); // Arguments
+fn(1, 2, 3); // Argumnts [1,2,3]
+
+Math.max(1,2,3,4,5,6,7,8,9); // 9
+
+// ES6
+function fnES6(...args) {
+  return args;
+}
+fn2(1,2,3); // [1,2,3]
+```
+
+### 3. 메서드
+
+객체 내부에 멤버로 존재하는 함수.
+
+```javascript
+var obj = {
+  method1: function() {return 1;},
+  method2: () => {}, // ES6
+  method3: function fn() {},
+  method4() {} // ES6
+}
+obj.method1();
+obj["method1"]();
+```
+
+### 4. 생성자
+
+new 키워드를 이용해 함수를 객체 원형으로 이용가능하다. 함수를 생성자로 호출하면 함수가 가진 prototype 프로퍼티를 상속받은 새로운 빈 객체가 생성된다. 단, 화살표 함수는 생성자로 이용 불가능하다.
+
+```javascript
+// Object, Function, Array 모두 함수이다.
+new Object();
+new Function();
+new Array();
+```
+
+### 5. this
+
+함수 내부에서 this 키워드는 함수를 호출한 주체 객체를 가리킨다. 따라서 this의 값은 함수가 호출될 때 결정된다.
+
+```javascript
+function fn(name) {
+  this.name = name;
+  return this;
+}
+fn("giin"); // window
+name // "giin"
+
+var obj = {
+  method: fn
+};
+obj.method("lee"); // {method: fn, name: "lee"}
+new fn("park"); // fn {name: "park"}
+```
+
+위에서 fn의 호출 객체가 window라서 window.name = "giin"가 실행된다. 그런데 window가 글로벌 객체이므로 name 만으로 값 호출이 가능해진다.
+
+**call, apply, bind** 는 함수 객체가 가진 메서드이다. 이를 이용해서 this가 가리키는 객체를 변경할 수 있다.
+
+```javascript
+function fn(age) {
+  this.age = age;
+}
+var obj = {};
+
+fn.call(obj, 10);
+obj // {age: 10}
+
+fn.apply(obj, [10]); // apply는 함수 인자를 배열로 받는다.
+fn.bind(obj, 10); // fn. bind는 함수를 실행시키는 대신 this가 변경된 함수를 반환한다.
+```
+
+화살표 함수의 this값은 항상 함수가 만들어진 시점의 this와 동일하다. call, apply, bind를 사용해도 this 객체를 변경할 수 없다.
+
+```javascript
+var arrow = () => this;
+arrow(); // window
+
+var obj = {method: arrow};
+obj.method(); // window
+
+var obj2 = {
+  outer: function () {
+    return () => {
+      this.name = "inner";
+      return this;
+    }
+  }
+}
+obj2.outer()(); // {outer, name: "inner"}
+```
+
+## 3. 프로토타입
+
+JS는 클래스가 아닌 프로토타입 기반의 객체지향언어이다. JS에서 객체를 만들기 위한 추상 선언문이 **생성자**, 생성자를 기반으로 만들어낸 초기화된 것은 **인스턴스 객체** 이다. 프로토타입은 모든 인스턴스가 공유할 수 있는 객체이며, 이 프로토타입에 접근할 수 있는 프로토타입 링크를 가지고 있다.
+
+```javascript
+function Giin() {
+  this.dream = "천재 개발자";
+}
+Giin.prototype // {constructor: <Giin>} 여기서 <Giin>은 생성자 함수의 링크를 의미
+
+var giin1 = new Giin(); // {dream: "천재 개발자"}
+giin1.__proto__ // {constructor: <Giin>}
+```
+
+프로토타입은 **객체**이며, 모든 객체 인스턴스는 프로토타입이 될 수 있다. 생성자 함수를 선언했을 때 만들어지는 프로토타입 객체는 **Object의 인스턴스이다.**
+
+### 1. 프로토타입 체인
+
+객체는 자신이 가지고 있지 않지만 프로토타입이 가지고 있는 멤버를 참조 가능하며, 프로토타입을 동적으로 변경 가능하다. 또한 프로토타입의 멤버가 변경되면 연결되어있는 객체에서 멤버를 참조할 때 변경된 값이 참조된다.
+
+```javascript
+Giin.prototype.weapon = "javascript";
+var giin2 = new Giin();
+
+giin2 // {dream: "천재 개발자"}
+giin2.weapon // "javascript"
+
+Giin.prototype.weapon = "typescript"
+giin2.weapon // "typescript"
+```
+
+객체에서 멤버를 참조할 때, 객체가 찾고자 하는 멤버를 가지고 있지 않을 경우 연결된 프로토타입 객체까지 찾아 들어간다. 이렇게 멤버를 찾아 프로토타입을 순회하는 것을 **프로토타입 체인**이라고 한다.
+
+생성자 함수를 선언할 때 만들어지는 프로토타입은 Object의 인스턴스이다. 즉, **Object의 프로토타입을 참조**하고 있다. 모든 객체의 조상이 Object이고, 모든 객체가 Object의 멤버를 사용할 수 있는 이유이다. Object의 프로토타입의 프로토타입 링크는 **undefined**이고, 따라서 프로토타입 체인은 undefined를 만나면 탐색을 멈추고 undefined를 반환하게 된다.
+
+단, `<Object name>.hasOwnProperty` 메서드로 객체의 멤버를 확인할 때는 프로타입 체인이 동작하지 않는다.
+
+그리고, 인스턴스 객체에서 프로토타입 값을 변경하면 보안적으로 문제가 생길 수 있기 때문에 객체의 프로퍼티를 할당할 때는 프로토타입이 아니라 객체 자신의 프로퍼티가 변경된다.
+
+```javascript
+giin2.weapon = "JAVA"
+Giin.prototype.weapon // typescript
+giin2 // {dream: "천재 개발자", weapon: "JAVA"}
+```
+
