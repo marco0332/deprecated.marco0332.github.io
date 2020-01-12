@@ -271,10 +271,10 @@ Giin.prototype.weapon = "javascript";
 var giin2 = new Giin();
 
 giin2 // {dream: "천재 개발자"}
-giin2.weapon // "javascript"
+giin2.langauge // "javascript"
 
-Giin.prototype.weapon = "typescript"
-giin2.weapon // "typescript"
+Giin.prototype.langauge = "typescript"
+giin2.langauge // "typescript"
 ```
 
 객체에서 멤버를 참조할 때, 객체가 찾고자 하는 멤버를 가지고 있지 않을 경우 연결된 프로토타입 객체까지 찾아 들어간다. 이렇게 멤버를 찾아 프로토타입을 순회하는 것을 **프로토타입 체인**이라고 한다.
@@ -286,8 +286,100 @@ giin2.weapon // "typescript"
 그리고, 인스턴스 객체에서 프로토타입 값을 변경하면 보안적으로 문제가 생길 수 있기 때문에 객체의 프로퍼티를 할당할 때는 프로토타입이 아니라 객체 자신의 프로퍼티가 변경된다.
 
 ```javascript
-giin2.weapon = "JAVA"
-Giin.prototype.weapon // typescript
-giin2 // {dream: "천재 개발자", weapon: "JAVA"}
+giin2.langauge = "JAVA"
+Giin.prototype.langauge // typescript
+giin2 // {dream: "천재 개발자", langauge: "JAVA"}
 ```
+
+> ***Q. 프로토타입을 사용하는 이유?***
+>
+> 생성자에서 초기화하는 멤버는 인스턴스를 생성할 때마다 새로 생성된다. 이렇게 멤버를 중복 생성하면 인스턴스를 생성할 때마다 불필요한 비용이 발생한다.
+>
+> 따라서 인스턴스마다 고유의 값을 가지거나 자주 변경되는 멤버는 변경될 때 인스턴스의 멤버로 추가되므로 생성자에서 초기화하는 것이 좋다.
+>
+> ```javascript
+> function Giin() {
+>   this.method = function(){};
+> }
+> 
+> var giin1 = new Giin();
+> var giin2 = new Giin();
+> 
+> giin1.method == giin2.method // false
+> ```
+>
+> 프로토타입에 할당하는 멤버는 단 한번만 생성되고, 해당 멤버의 참조를 모든 인스턴스가 공유한다. 잘 변경되지 않고 모든 인스턴스가 동일한 값을 가지는 메서드를 작성할 때는 프로토타입을 사용한다.
+>
+> ```javascript
+> function Giin(){}
+> Giin.prototype.method = function(){};
+> 
+> var giin1 = new Giin();
+> var giin2 = new Giin();
+> 
+> giin1.method == giin2.method // true
+> ```
+
+### 2. 상속
+
+생성자를 상속하려면 apply 메서드를 사용한다.
+
+```javascript
+function Giin() {
+  this.dream = "천재 개발자";
+}
+
+function Giin2() {
+  Giin.apply(this);
+  this.age = 100;
+}
+
+var giin = new Giin2(); // {dream: "천재 개발자", age: 100}
+```
+
+프로토타입을 상속하려면 **생성자의 프로토타입의 프로토타입 링크**에 상속할 프로토타입을 연결해준다.
+
+```javascript
+Giin2.prototype.__proto__ = Giin.prototype
+```
+
+한 객체는 하나의 프로토타입만 상속받을 수 있다. (다중상속 불가능)
+
+**instanceof** 연산자를 사용하면 좌변에 주어진 객체의 프로토타입 체인에 우변에 주어진 객체 원형의 프로토타입이 존재하는지 확인하게 된다.
+
+```javascript
+giin instanceof Giin2
+giin instanceof Giin
+```
+
+### 3. Class
+
+JS에 <span class="es6">Class</span> 는 ES6에 추가된 키워드이다. 실제 구현 방식은 **프로토타입**이고, 편하게 객체를 작성할 수 있도록 생긴 신택스 슈거이다.
+
+```javascript
+class Giin {
+  constructor() {
+    this.dream = "천재 개발자";
+  }
+  // 메서드들은 프로토타입에 등록된다.
+  method() {
+    return this.dream;
+  }
+}
+
+class Giin2 exrtends Giin {
+  constructor() {
+    super(); // super 메서드로 부모 객체의 생성자 호출
+    this.age = 100;
+  }
+}
+```
+
+## 4. 스코프
+
+함수 안에서 변수를 선언하면 바깥에서 참조 불가능한 지역 변수가 된다. 이런 변수의 유효범위를 **스코프**라고 한다. 또한 <span class="es6">es6에서 추가된 **let**과 **const** 키워드</span>로 조건문, 반복문 블록 내부에서 변수를 선언하면 바깥에서 참조 불가능한 지역 변수가 된다.
+
+함수 내부에서는 함수 바깥에서 선언된 변수에 접근이 가능하다. 하지만 함수 내에 같은 이름의 지역변수가 있다면 해당 지역 변수가 우선시 된다. 만일 상위 스코프에 찾는 변수가 없다면 전역 스코프에 도달할 때까지 바깥쪽 스코프를 탐색하게 되는데 이를 **스코프 체인**이라고 한다.
+
+### 1. 실행 컨텍스트
 
