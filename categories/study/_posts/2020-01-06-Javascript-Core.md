@@ -54,7 +54,7 @@ excerpt_separator: <!--more-->
 Javascript에서 값이 자료형까지 완전히 동일한지 확인하기 위해서는 '==='을 사용해야 한다.  
 &nbsp;&nbsp;ex1) 123 == "123" <span class="blueFont"> // true</span><br />&nbsp;&nbsp;ex2) 123 === "123" <span class="blueFont"> // false</span>
 
-> ***+ &alpha;. &&과 || 연산자를 이용한 조건문***<br />var something = a || 1; _  a가 truthy하면 something은 a, falsy하면 1이 된다.<br />a && doSomething(); _ a가 truthy하면 doSomething() 함수 실행.
+> *** `&&과 || 연산자를 이용한 조건문`***<br />`var something = a || 1;` :  a가 truthy하면 something은 a, falsy하면 1이 된다.<br />`a && doSomething();` : a가 truthy하면 doSomething() 함수 실행.
 
 #### 5. Wrapper 객체
 ```javascript
@@ -84,8 +84,6 @@ for (var key in obj) {
 // 열거 가능한 멤버만 가져온다.
 var obj2 = {...obj};
 ```
-
-
 
 - Object.defineProperty<br />
 : 객체 멤버 속성 설정하는 메서드. Object.defineProperty(대상 객체, 정의하려는 키 명, 서술자)  
@@ -477,7 +475,7 @@ var newScope = (function() {
 - 컨텍스트 생성 후 함수가 실행되는데, 사용되는 변수들은 변수 객체 안에서 값을 찾고, 없다면 스코프 체인을 따라 올라가며 찾는다. (**스코프** 맨 처음 설명)
 - 함수 실행이 마무리되면 해당 컨텍스트는 사라진다 (클로저 제외). 페이지가 종료되면 전역 컨텍스트가 사라진다.
 
-#### 전역 컨텍스트
+#### - 전역 컨텍스트
 
 전역 컨텍스트가 생성된 후 두 번째 원칙에 따라 변수객체, scope chain, this가 들어온다. 전역 컨텍스트는 **arguments**가 없고, variable은 해당 스코프의 변수들이다. **scope chain(자신과 상위 스코프들의 변수객체)**은 자기 자신인 전역 변수객체이다. **this**는 따로 설정되어 있지 않으면 window이다. this를 바꾸는 방법은 **new** 를 호출하거나 함수에 다른 this 값을 **bind** 하면 된다.
 
@@ -498,7 +496,7 @@ var newScope = (function() {
 variable: [{ name: 'giin' }, {wrapper: Function}, {log: Function}]
 ```
 
-#### 함수 컨텍스트
+#### - 함수 컨텍스트
 
 위에 적었던 코드에서 `wrapper();` 하는 순간 새로운 함수 컨텍스트인 wrapper 함수 컨텍스트가 생긴다.
 
@@ -515,7 +513,7 @@ variable: [{ name: 'giin' }, {wrapper: Function}, {log: Function}]
 
 wrapper을 호출한 후 위에서부터 차례대로 실행되는데, variable의 name에 'kiin'을 대입해주고 나서 log()를 실행한다. 그러면 또 다시 함수 컨텍스트인 log가 생기고, 그 안에서 console.log(name)이 실행된다. 이 때 name은 log 컨텍스트 -> wrapper 컨텍스트 -> 전역 컨텍스트처럼 올라가면서 name의 값을 찾을 수 있을 때 까지 올라가는 형식으로 진행된다. 이러한 것을 **scope chain** 이라고 한다.
 
-#### 호이스팅
+#### - 호이스팅
 
 호이스팅이란 변수를 선언하고 초기화했을 때 선언 부분이 최상단으로 끌어올려지는 현상을 의미한다. (단, 초기화 또는 대입부분은 그대로 남아있다)
 
