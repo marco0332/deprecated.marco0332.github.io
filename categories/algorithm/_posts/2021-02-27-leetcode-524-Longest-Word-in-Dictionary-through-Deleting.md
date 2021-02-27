@@ -1,13 +1,3 @@
----
-layout: post
-title: [TypeScript] leetcode(524) - Longest Word in Dictionary through Deleting (Medium)
-description: >
-  leetcode - Longest Word in Dictionary through Deleting (Mideum), TypeScript
-excerpt_separator: <!--more-->
----
-
-<!--more-->
-
 # leetcode(524) - Longest Word in Dictionary through Deleting (Medium)
 
 ## - Problem

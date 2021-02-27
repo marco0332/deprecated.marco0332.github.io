@@ -1,13 +1,3 @@
----
-layout: post
-title: [JAVA] SWEA - 롤러코스터 (D4)
-description: >
-  SWExpertAcademy - 롤러코스터 (D4), JAVA
-excerpt_separator: <!--more-->
----
-
-<!--more-->
-
 # SWExpertAcademy - 롤러코스터 _ D4
 
 ## - 문제내용
