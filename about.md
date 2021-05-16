@@ -4,8 +4,6 @@ image: /assets/img/blog/gin.jpg
 
 # About
 
-~~"신입 개발자가 되고 싶은 신입 개발자 지망생"~~ 
-
 "고수가 되고 싶은 신입 개발자"
 {:.lead}
 
